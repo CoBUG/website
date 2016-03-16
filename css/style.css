@@ -135,3 +135,7 @@ a:hover, a:active {
 	font-size: .8em;
 	font-weight: normal;
 }
+
+.invalid {
+    color: red;
+}
