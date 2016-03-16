@@ -1,0 +1,137 @@
+/***** CSS RESET *****/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+/***** STYLE *****/
+
+body {
+    font-family: "Lucida Grande", "Segoe UI", Tahoma, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+ol {
+	list-style: decimal;
+	padding-left: 30px;
+}
+
+table {
+	width: 100%;
+	border-collapse: separate;
+}
+
+table td {
+	padding: 5px;
+}
+
+tbody tr:nth-child(even) {
+	background-color: #f1f1f1;
+}
+
+.container_12 {
+    margin-top: 40px;
+}
+
+h1 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding-bottom: 7px;
+    border-bottom: dashed 1px #DDD;
+    text-transform: uppercase;
+    font-size: 1.875em;
+    line-height: 1.066667em;
+    margin-top: 1.6em;
+    margin-bottom: 1.6em;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+    line-height: 1.333333em;
+    margin-top: 1.6em;
+    margin-bottom: 1.6em;
+}
+
+h3 {
+    font-family: Arial, sans-serif;
+    font-size: 1.25em;
+    line-height: 1.6em;
+    margin-top: 1.333333em;
+    margin-bottom: 1.333333em;
+}
+
+p {
+    font-size: 1em;
+    line-height: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+
+a, a:visited {
+    color: #0000FF;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+}
+
+/***** CoBUG *****/
+
+.logo {
+	height: 120px;
+	padding-left:20px;
+}
+
+.html5_footer {
+	text-align: right;
+}
+
+.pullright {
+	float: right;
+}
+
+.co {
+	background-color: #002868;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	margin-bottom: 1px;
+}
+
+.webitem {
+	border: 1px solid black;
+	padding: 15px;
+	border-radius: 5px;
+	margin-bottom: 1px;
+}
+
+.webitem h3 {
+	float:left;
+	text-align: center;
+}
+
+.webitem img {
+	width: 32px;
+	padding-right: 10px;
+}
+
+.bubble {
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid black;
+	box-shadow: 5px 5px 5px black;
+	display: none;
+	padding: 10px;
+	position: absolute;
+	width: 300px;
+	z-index: 200;
+}
+
+.bubble label {
+	font-size: 1.2em;
+}
+
+.bubble span {
+	font-size: .8em;
+	font-weight: normal;
+}

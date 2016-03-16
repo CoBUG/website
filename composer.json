@@ -1,0 +1,14 @@
+{
+    "name": "cobug/cobug.org",
+    "description": "Website for cobug.org",
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Aaron Bieber",
+            "email": "aaron@cobug.org"
+        }
+    ],
+    "require": {
+        "google/recaptcha": "~1.1"
+    }
+}
