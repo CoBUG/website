@@ -3,11 +3,32 @@ include('header.php');
 include('vendor/autoload.php');
 include('secrets.php');
 
+$constr = sprintf('pgsql:user=%s dbname=%s password=%s host=%s', $db['user'], $db['name'], $db['pass'], $db['server']);
+
+function checkUser($user, $cstr) {
+    $dbh = new PDO($cstr);
+
+    $sth = $dbh->prepare("select * from members where username = ?");
+    $sth->execute(array($user));
+    $exists = $sth->fetchAll();
+
+    return $exists;
+}
+
+function insertUser($u, $cstr) {
+    $dbh = new PDO($cstr);
+
+    $sth = $dbh->prepare("insert into user_queue (username, email, fname, lname, wants_xmpp, announce, native) values (?, ?, ?, ?, ?, ?, ?)");
+    $sth->execute(array($u['nick'], $u['email'], $u['fname'], $u['lname'], $u['xmpp'], $u['sub'], $u['native']));
+}
+
 $lang = 'en';
 $post = array();
 $invalid = false;
+$exists = false;
 
 if (isset($_POST['g-recaptcha-response'])) {
+
     $saniDefs = array(
 	'fname' => FILTER_SANITIZE_STRING,
 	'lname' => FILTER_SANITIZE_STRING,
@@ -19,14 +40,16 @@ if (isset($_POST['g-recaptcha-response'])) {
     $validDefs = array(
 	'email' => FILTER_VALIDATE_EMAIL,
 	'email2' => FILTER_VALIDATE_EMAIL
-	//'xmpp' => FILTER_VALIDATE_BOOLEAN,
-	//'native' => FILTER_VALIDATE_BOOLEAN,
-	//'sub' => FILTER_VALIDATE_BOOLEAN
     );
 
     $post = filter_var_array($_POST, $saniDefs);
+
+    $post['xmpp'] = isset($_POST['xmpp']) && $_POST['xmpp']  ? 1 : 0;
+    $post['native'] = isset($_POST['native']) && $_POST['native']  ? 1 : 0;
+    $post['sub'] = isset($_POST['sub']) && $_POST['sub']  ? 1 : 0;
+
     $valids = filter_var_array($post, $validDefs);
-    
+
     if(in_array(null, $valids, false)) {
 	$invalid = true;
     }
@@ -35,7 +58,14 @@ if (isset($_POST['g-recaptcha-response'])) {
 	$invalid = true;
     }
 
-    if (! $invalid) {
+    if (checkUser($post['nick'], $constr)) {
+	$invalid = true;
+	$exists = true;
+    }
+
+    if (! $invalid && ! $exists) {
+	insertUser($post, $constr);
+
 	curl_setopt_array($ch = curl_init(), array(
 	    CURLOPT_URL => "https://api.pushover.net/1/messages.json",
 	    CURLOPT_RETURNTRANSFER => TRUE,
@@ -86,12 +116,18 @@ if (isset($_POST['g-recaptcha-response'])) {
     <form action="/members.php" method="post">
 	<input type="text" name="fname" class="form wfid_fname textbox" placeholder="First Name" value="<?php if ($invalid) { echo $post['fname']; } ?>"/><br class="br"/>
 	<input type="text" name="lname" class="form wfid_lname textbox" placeholder="Last Name" value="<?php if ($invalid) { echo $post['lname']; } ?>"/><br class="br"/>
-	<input type="text" name="nick" class="form wfid_nname textbox" placeholder="Nick Name (IRC name?)" value="<?php if ($invalid) { echo $post['nick']; } ?>"/> * This will be your XMPP account name if you choose to create one.<br class="br"/>
-	<input type="text" name="email" class="form wfid_email textbox <?php if ($invalid) { echo 'invalid'; } ?>" placeholder="Email" value="<?php if ($invalid) { echo $post['email']; } ?>"/><br class="br"/>
-	<input type="text" name="email2" class="form wfid_emailconf textbox <?php if ($invalid) { echo 'invalid'; } ?>" placeholder="Confirm Email" value="<?php if ($invalid) { echo $post['email2']; } ?>"/><br class="br"/>
-	<label for=""><input id="" name="xmpp" type="checkbox" class="wfid_createxmpp checkbox" value="on" checked="checked"/>Create XMPP account?</label><br class="br"/>
-	<label for=""><input id="" name="native" type="checkbox" class="wfid_isco checkbox" value="on" checked="checked"/>Do you currently live in Colorado?</label><br class="br"/>
-	<label for=""><input id="" name="sub" type="checkbox" class="wfid_reminders checkbox" value="on"/>Subscribe me to the &#39;announce@&#39; mailing list!</label><br class="br"/>
+	<?php
+	$pholder = "Nick Name (IRC name?)";
+	if ($exists) {
+	    $pholder = "Nick already exists!";
+	}
+	?>
+	<input type="text" name="nick" class="form wfid_nname textbox <?php if ($exists) { echo "exists"; } ?>" placeholder="<?php echo $pholder; ?>" value="<?php if ($invalid && !$exists) { echo $post['nick']; } ?>"/> * This will be your XMPP account name if you choose to create one.<br class="br"/>
+	<input type="text" name="email" class="form wfid_email textbox <?php if ($invalid && !$exists) { echo 'invalid'; } ?>" placeholder="Email" value="<?php if ($invalid) { echo $post['email']; } ?>"/><br class="br"/>
+	<input type="text" name="email2" class="form wfid_emailconf textbox <?php if ($invalid && !$exists) { echo 'invalid'; } ?>" placeholder="Confirm Email" value="<?php if ($invalid) { echo $post['email2']; } ?>"/><br class="br"/>
+	<label for=""><input id="" name="xmpp" type="checkbox" class="wfid_createxmpp checkbox" value="1" checked="checked"/>Create XMPP account?</label><br class="br"/>
+	<label for=""><input id="" name="native" type="checkbox" class="wfid_isco checkbox" value="1" checked="checked"/>Do you currently live in Colorado?</label><br class="br"/>
+	<label for=""><input id="" name="sub" type="checkbox" class="wfid_reminders checkbox" value="1"/>Subscribe me to the &#39;announce@&#39; mailing list!</label><br class="br"/>
 	<p class="p"style="clear:both"></p>
 	<div class="g-recaptcha" data-sitekey="<?php echo $captchaKey; ?>"></div>
 
@@ -102,7 +138,7 @@ if (isset($_POST['g-recaptcha-response'])) {
 	<?php endif;
 	?>
 
-	
+
 	<?php
 	include('footer.php');
 	?>

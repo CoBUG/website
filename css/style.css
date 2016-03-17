@@ -139,3 +139,7 @@ a:hover, a:active {
 .invalid {
     color: red;
 }
+
+.exists {
+    border: 1px solid red;
+}
