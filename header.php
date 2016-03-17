@@ -61,19 +61,16 @@
           <li class="listitem"><a href="/friends.php"class="link"data-ajax="false">Friends</a></li>
           <li class="listitem"><a href="https://plus.google.com/111589217766561596353"rel="publisher">Google+</a></li>
         </ul>
-        <h3 class="co  h3">Events</h3>
-        <ul class="list">
-	</ul>
         <h3 class="co  h3">*BSD</h3>
         <ul class="list">
-          <li class="listitem"><a href="http://www.pcbsd.org/"class="link"data-ajax="false">PC-BSD</a></li>
-          <li class="listitem"><a href="http://www.openbsd.org"class="link"data-ajax="false">OpenBSD</a></li>
-          <li class="listitem"><a href="http://www.netbsd.org"class="link"data-ajax="false">NetBSD</a></li>
-          <li class="listitem"><a href="https://hardenedbsd.org/"class="link"data-ajax="false">HardenedBSD</a></li>
-          <li class="listitem"><a href="http://www.freebsd.org"class="link"data-ajax="false">FreeBSD</a></li>
-          <li class="listitem"><a href="http://edgebsd.org/"class="link"data-ajax="false">EdgeBSD</a></li>
-          <li class="listitem"><a href="http://www.dragonflybsd.org"class="link"data-ajax="false">DragonFlyBSD</a></li>
-          <li class="listitem"><a href="http://www.bitrig.org"class="link"data-ajax="false">Bitrig</a></li>
+        <li class="listitem"><a href="http://www.pcbsd.org/"class="link"data-ajax="false">PC-BSD</a></li>
+        <li class="listitem"><a href="http://www.openbsd.org"class="link"data-ajax="false">OpenBSD</a></li>
+        <li class="listitem"><a href="http://www.netbsd.org"class="link"data-ajax="false">NetBSD</a></li>
+        <li class="listitem"><a href="https://hardenedbsd.org/"class="link"data-ajax="false">HardenedBSD</a></li>
+        <li class="listitem"><a href="http://www.freebsd.org"class="link"data-ajax="false">FreeBSD</a></li>
+        <li class="listitem"><a href="http://edgebsd.org/"class="link"data-ajax="false">EdgeBSD</a></li>
+        <li class="listitem"><a href="http://www.dragonflybsd.org"class="link"data-ajax="false">DragonFlyBSD</a></li>
+        <li class="listitem"><a href="http://www.bitrig.org"class="link"data-ajax="false">Bitrig</a></li>
         </ul>
-      </div>
-    </div>
+        </div>
+        </div>
