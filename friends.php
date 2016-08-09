@@ -30,6 +30,13 @@ include('header.php');
                         <hr size="1"class="hr"/>Knoxville BSD User Group serving Knoxville TN and the surrounding areas!</div>
                 </div>
             </div>
+            <div class="grid_4 omega">
+                <div class="webitem  grid ">
+                    <div class="">
+                        <a href="http://chibug.org/"class="link"data-ajax="false"><img class="image"style="width: 178px"src="/images/cdbug.png"/></a>
+                        <hr size="1"class="hr"/>Chicago BSD User Group serving the Chicago area!</div>
+                </div>
+            </div>
         </div>
         <div class='clear'></div>
 <?php
