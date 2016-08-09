@@ -22,6 +22,15 @@ include('header.php');
             </div>
             <div class='clear'></div>
         </div>
+        <div class="container_12">
+            <div class="grid_4 omega">
+                <div class="webitem  grid ">
+                    <div class="">
+                        <a href="http://knoxbug.org/"class="link"data-ajax="false"><img class="image"style="width: 178px"src="http://knoxbug.org/sites/default/files/knoxbug_logo2.png"/></a>
+                        <hr size="1"class="hr"/>Knoxville BSD User Group serving Knoxville TN and the surrounding areas!</div>
+                </div>
+            </div>
+        </div>
 <?php
 include('footer.php');
 ?>
