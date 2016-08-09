@@ -20,10 +20,10 @@ include('header.php');
                         <hr size="1"class="hr"/>Capital District *BSD User Group serving the NY Captial District (Albany, Troy, Schenectedy) area!</div>
                 </div>
             </div>
-            <div class='clear'></div>
         </div>
+        <div class='clear'></div>
         <div class="container_12">
-            <div class="grid_4 omega">
+            <div class="grid_4 alpha">
                 <div class="webitem  grid ">
                     <div class="">
                         <a href="http://knoxbug.org/"class="link"data-ajax="false"><img class="image"style="width: 178px"src="http://knoxbug.org/sites/default/files/knoxbug_logo2.png"/></a>
@@ -31,6 +31,7 @@ include('header.php');
                 </div>
             </div>
         </div>
+        <div class='clear'></div>
 <?php
 include('footer.php');
 ?>
