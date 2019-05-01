@@ -43,7 +43,6 @@
           <li class="listitem"><a href="/mailinglist.php"class="link"data-ajax="false">Mailing List</a></li>
           <li class="listitem"><a href="/xmpp.php"class="link"data-ajax="false">XMPP</a></li>
           <li class="listitem"><a href="/friends.php"class="link"data-ajax="false">Friends</a></li>
-          <li class="listitem"><a href="https://plus.google.com/111589217766561596353"rel="publisher">Google+</a></li>
         </ul>
 	<h3 class="co  h3">*BSD</h3>
 	<ul class="list">

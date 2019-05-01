@@ -1,7 +1,6 @@
 <?php
 include('header.php');
 ?>
-<script type="text/javascript"src="https://apis.google.com/js/plusone.js"></script>
 <div class="grid_10">
     <div class="grid ">
         <h2 class="h2">Around the Web</h2>
@@ -37,13 +36,6 @@ include('header.php');
             <div class='clear'></div>
         </div>
         <div class="container_12">
-            <div class="grid_4 alpha">
-                <div class="grid ">
-                    <div class="">
-                        <g:community href="https://plus.google.com/communities/112224531372695972083"></g:community>
-                    </div>
-                </div>
-            </div>
             <div class="grid_4 omega">
                 <div class="webitem  grid ">
                     <div class=""><img class="image"src="/images/cobsd_trimmed.png"/><a href="https://webchat.freenode.net/"class="link"data-ajax="false">IRC</a>
