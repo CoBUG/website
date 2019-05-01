@@ -53,7 +53,6 @@
 	    <li class="listitem"><a href="http://www.freebsd.org"class="link"data-ajax="false">FreeBSD</a></li>
 	    <li class="listitem"><a href="http://edgebsd.org/"class="link"data-ajax="false">EdgeBSD</a></li>
 	    <li class="listitem"><a href="http://www.dragonflybsd.org"class="link"data-ajax="false">DragonFlyBSD</a></li>
-	    <li class="listitem"><a href="http://www.bitrig.org"class="link"data-ajax="false">Bitrig</a></li>
 	</ul>
       </div>
     </div>
